@@ -1,0 +1,2838 @@
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"91"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"707 630",
+		"presnost":"6"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"87"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.000000",
+		"proud":"10.800000"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"77"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.200000",
+		"proud":"10.900000"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"82"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  45 Misto",
+		"pozice":"962 104",
+		"baterie_typ":"4",
+		"pocet_cyklu":"27"
+	}
+}
+{
+	"brana_id":"1111",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"86"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"1111",
+		"verze_os":"2.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.600000",
+		"proud":"11.000000"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"14"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"447 279",
+		"presnost":"5"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"42"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.600000",
+		"proud":"10.800000"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"81"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"943 770",
+		"presnost":"0"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"76"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.600000",
+		"proud":"10.500000"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"57"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.500000",
+		"proud":"10.300000"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"58"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.000000",
+		"proud":"10.100000"
+	}
+}
+{
+	"brana_id":"1111",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"89"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"1111",
+		"verze_os":"2.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.700000",
+		"proud":"10.600000"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"96"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  88 Misto",
+		"pozice":"701 364",
+		"baterie_typ":"3",
+		"pocet_cyklu":"20"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"60"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.900000",
+		"proud":"10.200000"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"42"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"730 198",
+		"presnost":"2"
+	}
+}
+{
+	"brana_id":"1111",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"56"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"1111",
+		"verze_os":"2.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.300000",
+		"proud":"10.800000"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"48"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.600000",
+		"proud":"10.800000"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"87"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"798 236",
+		"presnost":"0"
+	}
+}
+{
+	"brana_id":"1111",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"21"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"1111",
+		"verze_os":"2.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.100000",
+		"proud":"10.300000"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"82"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.800000",
+		"proud":"10.400000"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"3"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.000000",
+		"proud":"10.800000"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"39"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.400000",
+		"proud":"10.300000"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"59"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  90 Misto",
+		"pozice":"487 659",
+		"baterie_typ":"6",
+		"pocet_cyklu":"46"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"86"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  30 Misto",
+		"pozice":"967 338",
+		"baterie_typ":"6",
+		"pocet_cyklu":"82"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"55"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"696 386",
+		"presnost":"3"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"5"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"390 817",
+		"presnost":"4"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"43"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.800000",
+		"proud":"10.600000"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"95"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.900000",
+		"proud":"10.300000"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"100"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.600000",
+		"proud":"10.900000"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"58"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"904 630",
+		"presnost":"3"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"7"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.200000",
+		"proud":"10.600000"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"15"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"191 721",
+		"presnost":"2"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"25"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"490 456",
+		"presnost":"3"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"48"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.000000",
+		"proud":"11.000000"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"38"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"564 378",
+		"presnost":"5"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"98"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  98 Misto",
+		"pozice":"397 521",
+		"baterie_typ":"10",
+		"pocet_cyklu":"28"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"47"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  33 Misto",
+		"pozice":"608 681",
+		"baterie_typ":"3",
+		"pocet_cyklu":"24"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"100"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"264 319",
+		"presnost":"6"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"64"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.900000",
+		"proud":"10.900000"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"13"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.000000",
+		"proud":"10.200000"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"4"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  60 Misto",
+		"pozice":"848 573",
+		"baterie_typ":"6",
+		"pocet_cyklu":"100"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"2"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.500000",
+		"proud":"10.600000"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"41"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  50 Misto",
+		"pozice":"648 797",
+		"baterie_typ":"5",
+		"pocet_cyklu":"42"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"76"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"752 304",
+		"presnost":"0"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"16"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.500000",
+		"proud":"10.200000"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"69"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.700000",
+		"proud":"10.200000"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"38"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  11 Misto",
+		"pozice":"656 209",
+		"baterie_typ":"7",
+		"pocet_cyklu":"19"
+	}
+}
+{
+	"brana_id":"1111",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"8"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"1111",
+		"verze_os":"2.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.100000",
+		"proud":"10.000000"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"48"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.900000",
+		"proud":"10.900000"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"86"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.000000",
+		"proud":"10.200000"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"9"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.000000",
+		"proud":"10.800000"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"27"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.300000",
+		"proud":"10.500000"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"51"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"691 798",
+		"presnost":"6"
+	}
+}
+{
+	"brana_id":"1111",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"17"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"1111",
+		"verze_os":"2.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.600000",
+		"proud":"10.900000"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"29"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"417 329",
+		"presnost":"4"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"99"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"466 595",
+		"presnost":"2"
+	}
+}
+{
+	"brana_id":"1111",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"52"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"1111",
+		"verze_os":"2.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.400000",
+		"proud":"10.300000"
+	}
+}
+{
+	"brana_id":"1111",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"7"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"1111",
+		"verze_os":"2.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.400000",
+		"proud":"10.500000"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"41"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.300000",
+		"proud":"10.400000"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"96"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"898 105",
+		"presnost":"1"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"6"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"13.000000",
+		"proud":"10.400000"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"74"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.200000",
+		"proud":"11.000000"
+	}
+}
+{
+	"brana_id":"1111",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"18"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"1111",
+		"verze_os":"2.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.500000",
+		"proud":"10.900000"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"59"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.200000",
+		"proud":"10.000000"
+	}
+}
+{
+	"brana_id":"1111",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"5"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"1111",
+		"verze_os":"2.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.200000",
+		"proud":"10.500000"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"39"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  50 Misto",
+		"pozice":"516 861",
+		"baterie_typ":"10",
+		"pocet_cyklu":"52"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"38"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  89 Misto",
+		"pozice":"358 780",
+		"baterie_typ":"3",
+		"pocet_cyklu":"74"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"99"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  58 Misto",
+		"pozice":"498 202",
+		"baterie_typ":"5",
+		"pocet_cyklu":"25"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"71"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.500000",
+		"proud":"10.300000"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"79"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.800000",
+		"proud":"10.400000"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"10"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"984 378",
+		"presnost":"4"
+	}
+}
+{
+	"brana_id":"1111",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"6"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"1111",
+		"verze_os":"2.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.100000",
+		"proud":"10.400000"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"50"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.000000",
+		"proud":"10.700000"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"70"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.900000",
+		"proud":"10.900000"
+	}
+}
+{
+	"brana_id":"1111",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"28"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"1111",
+		"verze_os":"2.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.300000",
+		"proud":"10.800000"
+	}
+}
+{
+	"brana_id":"1111",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"10"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"1111",
+		"verze_os":"2.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.800000",
+		"proud":"10.400000"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"88"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"743 217",
+		"presnost":"3"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"36"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  20 Misto",
+		"pozice":"191 213",
+		"baterie_typ":"2",
+		"pocet_cyklu":"44"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"54"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.700000",
+		"proud":"10.300000"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"QQQ4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"C",
+				"km_sazba":"50"
+			},
+			"firma":{
+				"nazev":"company 2",
+				"ico":"ICO2",
+				"adresa":"company address 2"
+			},
+			"ujete_km":"21"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"447 542",
+		"presnost":"2"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"78"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  11 Misto",
+		"pozice":"824 188",
+		"baterie_typ":"4",
+		"pocet_cyklu":"40"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"94"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"485 759",
+		"presnost":"6"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"24"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"981 975",
+		"presnost":"2"
+	}
+}
+{
+	"brana_id":"1111",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"39"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"1111",
+		"verze_os":"2.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.800000",
+		"proud":"10.400000"
+	}
+}
+{
+	"brana_id":"1111",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"53"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"1111",
+		"verze_os":"2.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.300000",
+		"proud":"10.500000"
+	}
+}
+{
+	"brana_id":"4444",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"44"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"4444",
+		"verze_os":"1.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.800000",
+		"proud":"10.800000"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"BBB4567",
+				"typ_vozidla":"BB",
+				"hmotnost":"17.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"85"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"389 474",
+		"presnost":"6"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"41"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"643 596",
+		"presnost":"0"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"66"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  79 Misto",
+		"pozice":"993 259",
+		"baterie_typ":"2",
+		"pocet_cyklu":"96"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"7"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  90 Misto",
+		"pozice":"242 119",
+		"baterie_typ":"9",
+		"pocet_cyklu":"71"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"31"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"791 907",
+		"presnost":"0"
+	}
+}
+{
+	"brana_id":"0000",
+	"typ_brany":"virtualni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"99"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"0000",
+		"verze_os":"",
+		"systemovy_datum_cas":"1714940844",
+		"GPS":"365 745",
+		"presnost":"1"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"1"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.400000",
+		"proud":"10.800000"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"36"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  56 Misto",
+		"pozice":"928 368",
+		"baterie_typ":"1",
+		"pocet_cyklu":"34"
+	}
+}
+{
+	"brana_id":"1111",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"46"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"1111",
+		"verze_os":"2.0",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"13.000000",
+		"proud":"10.300000"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"29"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  80 Misto",
+		"pozice":"995 882",
+		"baterie_typ":"1",
+		"pocet_cyklu":"6"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"98"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"12.400000",
+		"proud":"10.100000"
+	}
+}
+{
+	"brana_id":"2222",
+	"typ_brany":"mobilni",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"CCC4567",
+				"typ_vozidla":"CC",
+				"hmotnost":"12",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 3",
+				"ico":"ICO3",
+				"adresa":"company address 3"
+			},
+			"ujete_km":"20"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"2222",
+		"verze_os":"1.1",
+		"systemovy_datum_cas":"1714940844",
+		"misto":"Ulice  28 Misto",
+		"pozice":"969 674",
+		"baterie_typ":"10",
+		"pocet_cyklu":"18"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"DDD4567",
+				"typ_vozidla":"様様様様様24",
+				"hmotnost":"24",
+				"emisni_trida":"B",
+				"km_sazba":"20"
+			},
+			"firma":{
+				"nazev":"company 4",
+				"ico":"ICO4",
+				"adresa":"company address 4"
+			},
+			"ujete_km":"34"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"11.800000",
+		"proud":"10.800000"
+	}
+}
+{
+	"brana_id":"3333",
+	"typ_brany":"staticka",
+	"prujezd":{
+			"datum_prujezdu":"1714940844",
+			"registrace_vozidla":{
+				"vozidlo":{"spz":"AAA4567",
+				"typ_vozidla":"DD",
+				"hmotnost":"7.5",
+				"emisni_trida":"A",
+				"km_sazba":"10"
+			},
+			"firma":{
+				"nazev":"company 1",
+				"ico":"ICO1",
+				"adresa":"company address 1"
+			},
+			"ujete_km":"38"
+		}
+	},
+	"systemova_data":{
+		"brana_id":"3333",
+		"verze_os":"1.2",
+		"systemovy_datum_cas":"1714940844",
+		"napeti":"13.000000",
+		"proud":"10.300000"
+	}
+}
