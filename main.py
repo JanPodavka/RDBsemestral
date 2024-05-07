@@ -1,9 +1,7 @@
 import json
-import pyjson5 as json5
 import pymongo
-from pymongo.collection import Collection
-import pandas as pd
-
+import psycopg2
+from pprint import pprint
 
 def saveJsonToMongo(path, collection):
     with open(path, 'r') as file:
@@ -16,4 +14,17 @@ if __name__ == '__main__':
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")  # zakomentovat po vytvřoení
     mydb = myclient["RDBsemestral"]
     mycol = mydb["TollGates"]
-    saveJsonToMongo('data/data-export2.json', mycol)
+    # saveJsonToMongo('data/data-export2.json', mycol)
+
+
+cursor = mycol.find()
+for document in cursor:
+    pprint(document)
+
+conn = psycopg2.connect(database="postgres",
+                        host="localhost",
+                        user="postgres",
+                        password="root",
+                        port="5432")
+
+cursor = conn.cursor()
