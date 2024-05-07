@@ -9,10 +9,36 @@ def saveJsonToMongo(path, collection):
     inserted = collection.insert_many(file_data)
     print(inserted.inserted_ids)
 
-# def SPZ()
 
-def MongoToPostgre(collection, connect):
-    cursor = connect.cursor()
+def SPZ():
+    conn = psycopg2.connect(database="postgres",
+                            host="localhost",
+                            user="postgres",
+                            password="root",
+                            port="5432")
+    cursor = conn.cursor()
+    select_stmt = (
+        "SELECT spz FROM Vozidlo"
+    )
+    cursor.execute(select_stmt)
+    spz_results = cursor.fetchall()
+    spz_dict = {"spz": []}
+
+    for row in spz_results:
+        spz_dict["spz"].append(row[0])
+
+    cursor.close()
+    conn.close()
+    print(spz_dict)
+
+
+def MongoToPostgre(collection):
+    conn = psycopg2.connect(database="postgres",
+                            host="localhost",
+                            user="postgres",
+                            password="root",
+                            port="5432")
+    cursor = conn.cursor()
     for document in collection.find({},{ "brana_id": 1,
                                          "prujezd.datum_prujezdu":1,
                                          "prujezd.registrace_vozidla.vozidlo.spz":1,
@@ -45,8 +71,9 @@ def MongoToPostgre(collection, connect):
         data = (brana_id, datum_prujezdu, ujete_km, spz)
         cursor.execute(insert_stmt, data)
 
-    connect.commit()
+    conn.commit()
     cursor.close()
+    conn.close()
 
 
 if __name__ == '__main__':
@@ -54,10 +81,5 @@ if __name__ == '__main__':
     mydb = myclient["RDBsemestral"]
     mycol = mydb["TollGates"]
     # saveJsonToMongo('data/data-export2.json', mycol)
-    conn = psycopg2.connect(database="postgres",
-                            host="localhost",
-                            user="postgres",
-                            password="root",
-                            port="5432")
-    MongoToPostgre(mycol, conn)
-    conn.close()
+    # MongoToPostgre(mycol)
+    SPZ()
