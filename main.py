@@ -9,8 +9,10 @@ def saveJsonToMongo(path, collection):
     inserted = collection.insert_many(file_data)
     print(inserted.inserted_ids)
 
+# def SPZ()
 
-def readMongo(collection):
+def MongoToPostgre(collection, connect):
+    cursor = connect.cursor()
     for document in collection.find({},{ "brana_id": 1,
                                          "prujezd.datum_prujezdu":1,
                                          "prujezd.registrace_vozidla.vozidlo.spz":1,
@@ -18,11 +20,33 @@ def readMongo(collection):
                                          "prujezd.registrace_vozidla.vozidlo.km_sazba":1,
                                          "prujezd.registrace_vozidla.ujete_km":1}):
         # print(document)
-        brana_id = document["brana_id"]
-        datum_prujezdu = document["prujezd"]["datum_prujezdu"]
+        brana_id = int(document["brana_id"])
+        datum_prujezdu = int(document["prujezd"]["datum_prujezdu"])
         spz = document["prujezd"]["registrace_vozidla"]["vozidlo"]["spz"]
-        km_sazba = document["prujezd"]["registrace_vozidla"]["vozidlo"]["km_sazba"]
-        ujete_km = document["prujezd"]["registrace_vozidla"]["ujete_km"]
+        emisni_trida = document["prujezd"]["registrace_vozidla"]["vozidlo"]["emisni_trida"]
+        km_sazba = int(document["prujezd"]["registrace_vozidla"]["vozidlo"]["km_sazba"])
+        ujete_km = int(document["prujezd"]["registrace_vozidla"]["ujete_km"])
+
+        insert_stmt = (
+            "INSERT INTO Emisni_trida (typ, sazba) VALUES (%s,%s) ON CONFLICT DO NOTHING"
+        )
+        data = (emisni_trida, km_sazba)
+        cursor.execute(insert_stmt, data)
+
+        insert_stmt = (
+            "INSERT INTO Vozidlo (spz, kredit, emisni_trida_typ) VALUES (%s,0,%s) ON CONFLICT DO NOTHING"
+        )
+        data = (spz,emisni_trida)
+        cursor.execute(insert_stmt, data)
+
+        insert_stmt = (
+            "INSERT INTO Prujezd (brana_id, datum_prujezdu, ujete_km, vozidlo_spz) VALUES (%s, %s, %s, %s) ON CONFLICT DO NOTHING"
+        )
+        data = (brana_id, datum_prujezdu, ujete_km, spz)
+        cursor.execute(insert_stmt, data)
+
+    connect.commit()
+    cursor.close()
 
 
 if __name__ == '__main__':
@@ -30,12 +54,10 @@ if __name__ == '__main__':
     mydb = myclient["RDBsemestral"]
     mycol = mydb["TollGates"]
     # saveJsonToMongo('data/data-export2.json', mycol)
-    readMongo(mycol)
-
-conn = psycopg2.connect(database="postgres",
-                        host="localhost",
-                        user="postgres",
-                        password="root",
-                        port="5432")
-
-cursor = conn.cursor()
+    conn = psycopg2.connect(database="postgres",
+                            host="localhost",
+                            user="postgres",
+                            password="root",
+                            port="5432")
+    MongoToPostgre(mycol, conn)
+    conn.close()
