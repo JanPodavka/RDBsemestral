@@ -49,7 +49,6 @@ class MainWindow(QMainWindow):
         self.move(window_geometry.topLeft())
 
     def open_new_window(self):
-        #self.hide()  # Hide the MainWindow instead of closing it
         new_window = DatabaseWindow()
         new_window.show()
 
