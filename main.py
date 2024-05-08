@@ -229,19 +229,18 @@ def addKredit(spz, castka):
 
 
 def Platba(data):
-    id_platba = data["id"]
     typ = data["typ"]
     spz = data["spz"]
     data_platba = data["data"]
     if typ == "Karta":
-        Karta(id_platba, spz,data_platba)
+        Karta(spz,data_platba)
     elif typ == "Hotovost":
-        Hotovost(id_platba, spz, data_platba)
+        Hotovost(spz, data_platba)
     elif typ == "Prevod":
-        Prevod(id_platba, spz, data_platba)
+        Prevod(spz, data_platba)
 
 
-def Karta(id_platba, spz, data_platba):
+def Karta(spz, data_platba):
     conn, cursor = connectToPostgreDb()
     cislo_karty = data_platba["cislo_karty"]
     platnost = data_platba["platnost"]
@@ -249,9 +248,9 @@ def Karta(id_platba, spz, data_platba):
     castka = data_platba["castka"]
 
     insert_stmt = (
-        "INSERT INTO Platba (id, spz, Karta_cislo_karty) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Platba (spz, Karta_cislo_karty) VALUES (%s,%s) ON CONFLICT DO NOTHING"
     )
-    data = (id_platba, spz, cislo_karty)
+    data = (spz, cislo_karty)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
@@ -267,22 +266,21 @@ def Karta(id_platba, spz, data_platba):
     closePostgreDb(conn, cursor)
 
 
-def Hotovost(id_platba, spz, data_platba):
+def Hotovost(spz, data_platba):
     conn, cursor = connectToPostgreDb()
-    id_hotovost = data_platba["id"]
     castka = data_platba["castka"]
 
     insert_stmt = (
-        "INSERT INTO Platba (id, spz, hotovost_id) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Platba (spz) VALUES (%s) ON CONFLICT DO NOTHING"
     )
-    data = (id_platba, spz, id_hotovost)
+    data = (spz)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
     insert_stmt = (
-        "INSERT INTO Hotovost (id, castka) VALUES (%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Hotovost (castka) VALUES (%s) ON CONFLICT DO NOTHING"
     )
-    data = (id_hotovost, castka)
+    data = (castka)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
@@ -291,16 +289,16 @@ def Hotovost(id_platba, spz, data_platba):
     closePostgreDb(conn, cursor)
 
 
-def Prevod(id_platba, spz, data_platba):
+def Prevod(spz, data_platba):
     conn, cursor = connectToPostgreDb()
     cislo_uctu = data_platba["cislo_uctu"]
     vlastnik = data_platba["vlastnik"]
     castka = data_platba["castka"]
 
     insert_stmt = (
-        "INSERT INTO Platba (id, spz, Prevod_cislo_uctu) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Platba (spz, Prevod_cislo_uctu) VALUES (%s,%s) ON CONFLICT DO NOTHING"
     )
-    data = (id_platba, spz, cislo_uctu)
+    data = (spz, cislo_uctu)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
