@@ -5,6 +5,20 @@ from datetime import datetime
 import random
 
 
+def connectToPostgreDb():
+    conn = psycopg2.connect(database="postgres",
+                            host="localhost",
+                            user="postgres",
+                            password="root",
+                            port="5432")
+    return conn, conn.cursor()
+
+
+def closePostgreDb(conn, cursor):
+    cursor.close()
+    conn.close()
+
+
 def saveJsonToMongo(path, collection):
     with open(path, 'r') as file:
         file_data = json.load(file)
@@ -13,12 +27,7 @@ def saveJsonToMongo(path, collection):
 
 
 def SPZ():
-    conn = psycopg2.connect(database="postgres",
-                            host="localhost",
-                            user="postgres",
-                            password="root",
-                            port="5432")
-    cursor = conn.cursor()
+    conn, cursor = connectToPostgreDb()
     select_stmt = (
         "SELECT spz FROM Vozidlo"
     )
@@ -29,23 +38,16 @@ def SPZ():
     for row in spz_results:
         spz_dict["spz"].append(row[0])
 
-    cursor.close()
-    conn.close()
-    # print(spz_dict)
+    closePostgreDb(conn, cursor)
     return spz_dict
 
 
 def SPZ_Data(spz):
-    conn = psycopg2.connect(database="postgres",
-                            host="localhost",
-                            user="postgres",
-                            password="root",
-                            port="5432")
-    cursor = conn.cursor()
+    conn, cursor = connectToPostgreDb()
     spz_prujezd = {}
 
     sql_query = (
-    """
+        """
     SELECT SUM(ujete_km) AS celkem_km
     FROM Prujezd
     WHERE Vozidlo_SPZ = %s
@@ -81,18 +83,12 @@ def SPZ_Data(spz):
         data_dict.append(prujezd_dict)
 
     spz_prujezd["prujezd"] = data_dict
-    cursor.close()
-    conn.close()
+    closePostgreDb(conn, cursor)
     return spz_prujezd
 
 
 def searchSPZ(spz):
-    conn = psycopg2.connect(database="postgres",
-                            host="localhost",
-                            user="postgres",
-                            password="root",
-                            port="5432")
-    cursor = conn.cursor()
+    conn, cursor = connectToPostgreDb()
 
     cursor.execute("SELECT spz FROM Vozidlo")
     spz_records = cursor.fetchall()
@@ -102,18 +98,12 @@ def searchSPZ(spz):
     else:
         spz_new = 1
 
-    cursor.close()
-    conn.close()
+    closePostgreDb(conn, cursor)
     return spz_new
 
 
 def MongoToPostgre(collection):
-    conn = psycopg2.connect(database="postgres",
-                            host="localhost",
-                            user="postgres",
-                            password="root",
-                            port="5432")
-    cursor = conn.cursor()
+    conn, cursor = connectToPostgreDb()
     for document in collection.find({}, {"brana_id": 1,
                                          "prujezd.datum_prujezdu": 1,
                                          "prujezd.registrace_vozidla.vozidlo.spz": 1,
@@ -141,7 +131,7 @@ def MongoToPostgre(collection):
             insert_stmt = (
                 "INSERT INTO Vozidlo (spz, kredit, emisni_trida_typ) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
             )
-            data = (spz, kredit,emisni_trida)
+            data = (spz, kredit, emisni_trida)
             cursor.execute(insert_stmt, data)
 
         insert_stmt = (
@@ -151,8 +141,7 @@ def MongoToPostgre(collection):
         cursor.execute(insert_stmt, data)
 
     conn.commit()
-    cursor.close()
-    conn.close()
+    closePostgreDb(conn, cursor)
 
 
 if __name__ == '__main__':
@@ -160,7 +149,7 @@ if __name__ == '__main__':
     mydb = myclient["RDBsemestral"]
     mycol = mydb["TollGates"]
     # saveJsonToMongo('data/data-export2.json', mycol)
-    #MongoToPostgre(mycol)
+    # MongoToPostgre(mycol)
     # print(SPZ())
     # print(SPZ_Data('QQQ4567'))
     # print(searchSPZ('QQQ4567'))
