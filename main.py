@@ -128,7 +128,7 @@ def searchPruj(spz, brana_id, datum_prujezdu):
     return 1
 
 
-def payKredits(spz, ujete_km):
+def payKredit(spz, ujete_km):
     conn, cursor = connectToPostgreDb()
 
     sql_query = (
@@ -198,21 +198,45 @@ def MongoToPostgre(collection):
             )
             data = (brana_id, datum_prujezdu, ujete_km, spz)
             cursor.execute(insert_stmt, data)
-            payKredits(spz, ujete_km)
+            payKredit(spz, ujete_km)
             conn.commit()
 
     closePostgreDb(conn, cursor)
 
 
-def Platba(data):
-    id_platby = data["id"]
-    typ = data["typ"]
-    spz = data["spz"]
-    data_platba = data["data"]
-    if typ == "Karta":
-        Karta(id_platby, spz,data_platba)
-    elif typ == "Hotovost":
-    elif typ == "Prevod":
+def addKredit(spz, castka):
+    conn, cursor = connectToPostgreDb()
+
+    sql_query = (
+        """
+        SELECT kredit FROM vozidlo
+        WHERE vozidlo.spz = %s;
+        """
+    )
+    cursor.execute(sql_query, (spz,))
+    kredit = cursor.fetchone()[0]
+
+    sql_query = (
+        """
+        UPDATE Vozidlo
+        SET Kredit = %s
+        WHERE spz = %s;
+        """
+    )
+    cursor.execute(sql_query, (kredit + castka, spz))
+    conn.commit()
+    closePostgreDb(conn, cursor)
+
+
+# def Platba(data):
+#     id_platby = data["id"]
+#     typ = data["typ"]
+#     spz = data["spz"]
+#     data_platba = data["data"]
+#     if typ == "Karta":
+#         Karta(id_platby, spz,data_platba)
+#     elif typ == "Hotovost":
+#     elif typ == "Prevod":
 
 
 def Karta(id, spz, data_platba):
@@ -225,7 +249,7 @@ def Karta(id, spz, data_platba):
     insert_stmt = (
         "INSERT INTO Platba (id, spz, Karta_cislo_karty) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
     )
-    data = (id,spz, cislo_karty)
+    data = (id, spz, cislo_karty)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
@@ -244,8 +268,9 @@ if __name__ == '__main__':
     mydb = myclient["RDBsemestral"]
     mycol = mydb["TollGates"]
     # saveJsonToMongo('data/data-export2.json', mycol)
-    MongoToPostgre(mycol)
+    # MongoToPostgre(mycol)
     # print(SPZ())
     print(SPZ_Data('QQQ4567'))
     # print(searchSPZ('QQQ4567'))
     # print(searchPruj('QQQ4567', 1111, datetime.fromtimestamp(1715002361)))
+    addKredit('QQQ4567',1000)
