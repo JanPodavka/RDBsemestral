@@ -160,7 +160,7 @@ if __name__ == '__main__':
     mydb = myclient["RDBsemestral"]
     mycol = mydb["TollGates"]
     # saveJsonToMongo('data/data-export2.json', mycol)
-    # MongoToPostgre(mycol)
+    #MongoToPostgre(mycol)
     # print(SPZ())
     # print(SPZ_Data('QQQ4567'))
     # print(searchSPZ('QQQ4567'))
