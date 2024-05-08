@@ -9,15 +9,11 @@
         height="150"
         src="@/assets/logo.png"
       />
-       <div>
-        <h2>Data2 from Flask Backend:</h2>
-        <p>{{ dataFromBackend }}</p>
-      </div>
       <div>
         <h2>Data from Flask Backend in Table:</h2>
         <v-data-table
           :headers="headers"
-          :items="dataFromBackend"
+          :items="tableDataFromBackend"
           :items-per-page="5"
           class="elevation-1"
         ></v-data-table>
@@ -40,10 +36,19 @@ import axios from 'axios';
 import { ref, onMounted } from 'vue';
 
 const dataFromBackend = ref([]);
+const tableDataFromBackend = ref([]);
 
 axios.get('http://127.0.0.1:5000/api/data')
   .then(response => {
     dataFromBackend.value = response.data;  // Assuming response.data is an array of objects
+  })
+  .catch(error => {
+    console.error('Error fetching data from Flask backend:', error);
+  });
+
+axios.get('http://127.0.0.1:5000/api/dataPrujezd')
+  .then(response => {
+    tableDataFromBackend.value = response.data;  // Assuming response.data is an array of objects
   })
   .catch(error => {
     console.error('Error fetching data from Flask backend:', error);
