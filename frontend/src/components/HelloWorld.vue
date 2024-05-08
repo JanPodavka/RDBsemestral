@@ -4,11 +4,6 @@
       class="align-centerfill-height mx-auto"
       max-width="900"
     >
-      <v-img
-        class="mb-4"
-        height="150"
-        src="@/assets/logo.png"
-      />
       <div>
         <h2>Data from Flask Backend in Table:</h2>
         <v-data-table
@@ -18,12 +13,6 @@
           class="elevation-1"
         ></v-data-table>
       </div>
-      <div class="text-center">
-        <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
-
-        <h1 class="text-h2 font-weight-bold">Vuetify</h1>
-      </div>
-
       <div class="py-4" />
 
 

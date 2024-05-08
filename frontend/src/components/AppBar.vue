@@ -1,7 +1,5 @@
 <template>
-
-  <v-app>
-    <v-app-bar app>
+<v-app-bar app>
     <v-spacer></v-spacer>
       <v-tabs
       v-model="tab"
@@ -14,28 +12,15 @@
     </v-tabs>
     <v-spacer></v-spacer>
   </v-app-bar>
-    <AppSelectCar />
-    <v-main>
-      <template v-if="tab === 1">
-        <HelloWorld />
-      </template>
-      <template v-else-if="tab === 2">
-        <div>
-          Content for the second tab
-        </div>
-      </template>
-      <template v-else-if="tab === 3">
-        <div>
-          Content for the third tab
-        </div>
-      </template>
-    </v-main>
-    <AppFooter />
-  </v-app>
+
+
+
 </template>
 
 <script setup>
 import { ref } from 'vue';
 
 const tab = ref(1); // Default tab
+
 </script>
+

@@ -3,7 +3,7 @@ import datetime
 from flask import Flask, jsonify
 from flask_cors import CORS
 
-from main import SPZ_Data
+from main import SPZ_Data, SPZ
 
 app = Flask(__name__)
 CORS(app)
@@ -34,7 +34,12 @@ def get_tabledata():
     km = data['celkem_km']
     kredity = data['kredity']
     tabledata = data['prujezd']
-    return jsonify(tabledata)  # Corrected syntax
+    return jsonify(tabledata)
+
+@app.route('/api/dataSPZ')
+def get_dataSPZ():
+    data = SPZ()
+    return jsonify(data['spz'])  # Corrected syntax
 
 
 if __name__ == '__main__':
