@@ -101,6 +101,33 @@ def searchSPZ(spz):
     closePostgreDb(conn, cursor)
     return spz_new
 
+
+def searchPruj(spz, brana_id, datum_prujezdu):
+    conn, cursor = connectToPostgreDb()
+
+    sql_query = (
+        """
+    SELECT brana_id, datum_prujezdu
+    FROM Prujezd
+    WHERE Vozidlo_SPZ = %s
+    """
+    )
+    cursor.execute(sql_query, (spz,))
+    pru_records = cursor.fetchall()
+    brana = [record[0] for record in pru_records]
+    datum = [record[1] for record in pru_records]
+
+    closePostgreDb(conn, cursor)
+
+    for i, x in enumerate(brana):
+        if brana[i] == brana_id and datum[i] == datum_prujezdu:
+            return 0
+        else:
+            continue
+
+    return 1
+
+
 def updateKredits(spz, ujete_km):
     conn, cursor = connectToPostgreDb()
 
@@ -180,3 +207,4 @@ if __name__ == '__main__':
     # print(SPZ())
     # print(SPZ_Data('QQQ4567'))
     # print(searchSPZ('QQQ4567'))
+    print(searchPruj('QQQ4567', 1111, datetime.fromtimestamp(1715002361)))
