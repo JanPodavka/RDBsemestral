@@ -128,7 +128,7 @@ def searchPruj(spz, brana_id, datum_prujezdu):
     return 1
 
 
-def updateKredits(spz, ujete_km):
+def payKredits(spz, ujete_km):
     conn, cursor = connectToPostgreDb()
 
     sql_query = (
@@ -198,8 +198,43 @@ def MongoToPostgre(collection):
             )
             data = (brana_id, datum_prujezdu, ujete_km, spz)
             cursor.execute(insert_stmt, data)
-            updateKredits(spz, ujete_km)
+            payKredits(spz, ujete_km)
             conn.commit()
+
+    closePostgreDb(conn, cursor)
+
+
+def Platba(data):
+    id_platby = data["id"]
+    typ = data["typ"]
+    spz = data["spz"]
+    data_platba = data["data"]
+    if typ == "Karta":
+        Karta(id_platby, spz,data_platba)
+    elif typ == "Hotovost":
+    elif typ == "Prevod":
+
+
+def Karta(id, spz, data_platba):
+    conn, cursor = connectToPostgreDb()
+    cislo_karty = data_platba["cislo_karty"]
+    platnost = data_platba["platnost"]
+    vlastnik = data_platba["vlastnik"]
+    castka = data_platba["castka"]
+
+    insert_stmt = (
+        "INSERT INTO Platba (id, spz, Karta_cislo_karty) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+    )
+    data = (id,spz, cislo_karty)
+    cursor.execute(insert_stmt, data)
+    conn.commit()
+
+    insert_stmt = (
+        "INSERT INTO Karta (cislo_karty, platnost, vlastnik, castka) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING"
+    )
+    data = (cislo_karty, platnost, vlastnik, castka)
+    cursor.execute(insert_stmt, data)
+    conn.commit()
 
     closePostgreDb(conn, cursor)
 
