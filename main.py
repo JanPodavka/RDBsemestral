@@ -228,18 +228,20 @@ def addKredit(spz, castka):
     closePostgreDb(conn, cursor)
 
 
-# def Platba(data):
-#     id_platby = data["id"]
-#     typ = data["typ"]
-#     spz = data["spz"]
-#     data_platba = data["data"]
-#     if typ == "Karta":
-#         Karta(id_platby, spz,data_platba)
-#     elif typ == "Hotovost":
-#     elif typ == "Prevod":
+def Platba(data):
+    id_platba = data["id"]
+    typ = data["typ"]
+    spz = data["spz"]
+    data_platba = data["data"]
+    if typ == "Karta":
+        Karta(id_platba, spz,data_platba)
+    elif typ == "Hotovost":
+        Hotovost(id_platba, spz, data_platba)
+    elif typ == "Prevod":
+        Prevod(id_platba, spz, data_platba)
 
 
-def Karta(id, spz, data_platba):
+def Karta(id_platba, spz, data_platba):
     conn, cursor = connectToPostgreDb()
     cislo_karty = data_platba["cislo_karty"]
     platnost = data_platba["platnost"]
@@ -249,7 +251,7 @@ def Karta(id, spz, data_platba):
     insert_stmt = (
         "INSERT INTO Platba (id, spz, Karta_cislo_karty) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
     )
-    data = (id, spz, cislo_karty)
+    data = (id_platba, spz, cislo_karty)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
@@ -259,6 +261,57 @@ def Karta(id, spz, data_platba):
     data = (cislo_karty, platnost, vlastnik, castka)
     cursor.execute(insert_stmt, data)
     conn.commit()
+
+    addKredit(spz, castka)
+
+    closePostgreDb(conn, cursor)
+
+
+def Hotovost(id_platba, spz, data_platba):
+    conn, cursor = connectToPostgreDb()
+    id_hotovost = data_platba["id"]
+    castka = data_platba["castka"]
+
+    insert_stmt = (
+        "INSERT INTO Platba (id, spz, hotovost_id) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+    )
+    data = (id_platba, spz, id_hotovost)
+    cursor.execute(insert_stmt, data)
+    conn.commit()
+
+    insert_stmt = (
+        "INSERT INTO Hotovost (id, castka) VALUES (%s,%s) ON CONFLICT DO NOTHING"
+    )
+    data = (id_hotovost, castka)
+    cursor.execute(insert_stmt, data)
+    conn.commit()
+
+    addKredit(spz, castka)
+
+    closePostgreDb(conn, cursor)
+
+
+def Prevod(id_platba, spz, data_platba):
+    conn, cursor = connectToPostgreDb()
+    cislo_uctu = data_platba["cislo_uctu"]
+    vlastnik = data_platba["vlastnik"]
+    castka = data_platba["castka"]
+
+    insert_stmt = (
+        "INSERT INTO Platba (id, spz, Prevod_cislo_uctu) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+    )
+    data = (id_platba, spz, cislo_uctu)
+    cursor.execute(insert_stmt, data)
+    conn.commit()
+
+    insert_stmt = (
+        "INSERT INTO Prevod (cislo_ucstu, vlastnik, castka) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+    )
+    data = (cislo_uctu, vlastnik, castka)
+    cursor.execute(insert_stmt, data)
+    conn.commit()
+
+    addKredit(spz, castka)
 
     closePostgreDb(conn, cursor)
 
