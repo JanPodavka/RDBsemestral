@@ -178,23 +178,30 @@ def MongoToPostgre(collection):
         )
         data = (emisni_trida, km_sazba)
         cursor.execute(insert_stmt, data)
+        conn.commit()
 
         spz_new = searchSPZ(spz)
         if spz_new == 1:
             kredit = random.randint(2000, 5000)
+            print(kredit, spz)
             insert_stmt = (
                 "INSERT INTO Vozidlo (spz, kredit, emisni_trida_typ) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
             )
             data = (spz, kredit, emisni_trida)
             cursor.execute(insert_stmt, data)
+            conn.commit()
 
-        insert_stmt = (
-            "INSERT INTO Prujezd (brana_id, datum_prujezdu, ujete_km, vozidlo_spz) VALUES (%s, %s, %s, %s) ON CONFLICT DO NOTHING"
-        )
-        data = (brana_id, datum_prujezdu, ujete_km, spz)
-        cursor.execute(insert_stmt, data)
+        pruj_new = searchPruj(spz, brana_id, datum_prujezdu)
 
-    conn.commit()
+        if pruj_new == 1:
+            insert_stmt = (
+                "INSERT INTO Prujezd (brana_id, datum_prujezdu, ujete_km, vozidlo_spz) VALUES (%s, %s, %s, %s) ON CONFLICT DO NOTHING"
+            )
+            data = (brana_id, datum_prujezdu, ujete_km, spz)
+            cursor.execute(insert_stmt, data)
+            updateKredits(spz, ujete_km)
+            conn.commit()
+
     closePostgreDb(conn, cursor)
 
 
@@ -203,8 +210,8 @@ if __name__ == '__main__':
     mydb = myclient["RDBsemestral"]
     mycol = mydb["TollGates"]
     # saveJsonToMongo('data/data-export2.json', mycol)
-    # MongoToPostgre(mycol)
+    MongoToPostgre(mycol)
     # print(SPZ())
-    # print(SPZ_Data('QQQ4567'))
+    print(SPZ_Data('QQQ4567'))
     # print(searchSPZ('QQQ4567'))
-    print(searchPruj('QQQ4567', 1111, datetime.fromtimestamp(1715002361)))
+    # print(searchPruj('QQQ4567', 1111, datetime.fromtimestamp(1715002361)))
