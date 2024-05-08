@@ -101,6 +101,33 @@ def searchSPZ(spz):
     closePostgreDb(conn, cursor)
     return spz_new
 
+def updateKredits(spz, ujete_km):
+    conn, cursor = connectToPostgreDb()
+
+    sql_query = (
+        """
+        SELECT vozidlo.kredit, emisni_trida.sazba FROM vozidlo
+        JOIN emisni_trida ON vozidlo.emisni_trida_typ = emisni_trida.typ
+        WHERE vozidlo.spz = %s;
+        """
+    )
+    cursor.execute(sql_query, (spz,))
+    result = cursor.fetchone()
+    kredit = result[0]
+    sazba = result[1]
+
+    sql_query = (
+        """
+        UPDATE Vozidlo
+        SET Kredit = %s
+        WHERE spz = %s;
+        """
+    )
+    pay = ujete_km * sazba
+    cursor.execute(sql_query, (kredit-pay, spz))
+    conn.commit()
+    closePostgreDb(conn, cursor)
+
 
 def MongoToPostgre(collection):
     conn, cursor = connectToPostgreDb()
