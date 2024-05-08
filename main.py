@@ -183,7 +183,6 @@ def MongoToPostgre(collection):
         spz_new = searchSPZ(spz)
         if spz_new == 1:
             kredit = random.randint(2000, 5000)
-            print(kredit, spz)
             insert_stmt = (
                 "INSERT INTO Vozidlo (spz, kredit, emisni_trida_typ) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
             )
