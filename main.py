@@ -27,6 +27,7 @@ def saveJsonToMongo(path, collection):
     print(inserted.inserted_ids)
 
 
+#vypis vsech SPZ
 def SPZ():
     conn, cursor = connectToPostgreDb()
     select_stmt = (
@@ -43,6 +44,7 @@ def SPZ():
     return spz_dict
 
 
+#vypis dat pro konkretni SPZ
 def SPZ_Data(spz):
     conn, cursor = connectToPostgreDb()
     spz_prujezd = {}
@@ -88,6 +90,7 @@ def SPZ_Data(spz):
     return spz_prujezd
 
 
+#hleda, zda konkretni SPZ je v databazi
 def searchSPZ(spz):
     conn, cursor = connectToPostgreDb()
 
@@ -103,6 +106,7 @@ def searchSPZ(spz):
     return spz_new
 
 
+#hleda, zda konkretni prujezd je v databazi
 def searchPruj(spz, brana_id, datum_prujezdu):
     conn, cursor = connectToPostgreDb()
 
@@ -129,6 +133,7 @@ def searchPruj(spz, brana_id, datum_prujezdu):
     return 1
 
 
+#zaplaceni kreditu pri prujezdu
 def payKredit(spz, ujete_km):
     conn, cursor = connectToPostgreDb()
 
@@ -205,6 +210,7 @@ def MongoToPostgre(collection):
     closePostgreDb(conn, cursor)
 
 
+#nahrani kreditu
 def addKredit(spz, castka):
     conn, cursor = connectToPostgreDb()
 
@@ -229,6 +235,7 @@ def addKredit(spz, castka):
     closePostgreDb(conn, cursor)
 
 
+#Platba pro nahrani kreditu
 def Platba(data):
     typ = data["typ"]
     spz = data["spz"]
@@ -316,6 +323,21 @@ def Prevod(spz, data_platba):
     closePostgreDb(conn, cursor)
 
 
+def vypisPlatby(spz):
+    conn, cursor = connectToPostgreDb()
+    sql_query = (
+        """
+        SELECT * FROM platba
+        WHERE Vozidlo_spz = %s 
+        """
+    )
+    cursor.execute(sql_query, (spz,))
+    platba_records = cursor.fetchall()
+    all_platba = [record for record in platba_records]
+    closePostgreDb(conn, cursor)
+    return(all_platba)
+
+
 if __name__ == '__main__':
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")  # zakomentovat po vytvřoení
     mydb = myclient["RDBsemestral"]
@@ -327,4 +349,5 @@ if __name__ == '__main__':
     # print(searchSPZ('QQQ4567'))
     # print(searchPruj('QQQ4567', 1111, datetime.fromtimestamp(1715002361)))
     #addKredit('QQQ4567',4000)
-    Platba({"typ":"Karta", "spz":"QQQ4567", "data":{"cislo_karty":"68","platnost":datetime.fromtimestamp(1715002361), "datum_platby":1715002361,"vlastnik":"Ondra","castka":5000}})
+    #Platba({"typ":"Karta", "spz":"QQQ4567", "data":{"cislo_karty":"68","platnost":datetime.fromtimestamp(1715002361), "datum_platby":1715002361,"vlastnik":"Ondra","castka":5000}})
+    print(vypisPlatby('QQQ4567'))
