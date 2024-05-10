@@ -3,6 +3,7 @@ import pymongo
 import psycopg2
 from datetime import datetime
 import random
+#from pyliquibase import liquibase
 
 
 def connectToPostgreDb():
@@ -242,22 +243,23 @@ def Platba(data):
 
 def Karta(spz, data_platba):
     conn, cursor = connectToPostgreDb()
-    cislo_karty = data_platba["cislo_karty"]
+    cislo_karty = int(data_platba["cislo_karty"])
     platnost = data_platba["platnost"]
     vlastnik = data_platba["vlastnik"]
-    castka = data_platba["castka"]
-
-    insert_stmt = (
-        "INSERT INTO Platba (spz, Karta_cislo_karty) VALUES (%s,%s) ON CONFLICT DO NOTHING"
-    )
-    data = (spz, cislo_karty)
-    cursor.execute(insert_stmt, data)
-    conn.commit()
+    castka = int(data_platba["castka"])
+    datum_platby = datetime.fromtimestamp(data_platba["datum_platby"])
 
     insert_stmt = (
         "INSERT INTO Karta (cislo_karty, platnost, vlastnik, castka) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING"
     )
     data = (cislo_karty, platnost, vlastnik, castka)
+    cursor.execute(insert_stmt, data)
+    conn.commit()
+
+    insert_stmt = (
+        "INSERT INTO Platba (id,vozidlo_spz, Karta_cislo_karty, datum_platby) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING"
+    )
+    data = (1,spz, cislo_karty,datum_platby)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
@@ -271,16 +273,16 @@ def Hotovost(spz, data_platba):
     castka = data_platba["castka"]
 
     insert_stmt = (
-        "INSERT INTO Platba (spz) VALUES (%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Hotovost (castka) VALUES (%s) ON CONFLICT DO NOTHING"
     )
-    data = (spz)
+    data = (castka)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
     insert_stmt = (
-        "INSERT INTO Hotovost (castka) VALUES (%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Platba (spz) VALUES (%s) ON CONFLICT DO NOTHING"
     )
-    data = (castka)
+    data = (spz)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
@@ -296,16 +298,16 @@ def Prevod(spz, data_platba):
     castka = data_platba["castka"]
 
     insert_stmt = (
-        "INSERT INTO Platba (spz, Prevod_cislo_uctu) VALUES (%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Prevod (cislo_ucstu, vlastnik, castka) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
     )
-    data = (spz, cislo_uctu)
+    data = (cislo_uctu, vlastnik, castka)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
     insert_stmt = (
-        "INSERT INTO Prevod (cislo_ucstu, vlastnik, castka) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Platba (spz, Prevod_cislo_uctu) VALUES (%s,%s) ON CONFLICT DO NOTHING"
     )
-    data = (cislo_uctu, vlastnik, castka)
+    data = (spz, cislo_uctu)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
@@ -321,7 +323,8 @@ if __name__ == '__main__':
     # saveJsonToMongo('data/data-export2.json', mycol)
     # MongoToPostgre(mycol)
     # print(SPZ())
-    print(SPZ_Data('QQQ4567'))
+    # print(SPZ_Data('QQQ4567'))
     # print(searchSPZ('QQQ4567'))
     # print(searchPruj('QQQ4567', 1111, datetime.fromtimestamp(1715002361)))
-    addKredit('QQQ4567',1000)
+    #addKredit('QQQ4567',4000)
+    Platba({"typ":"Karta", "spz":"QQQ4567", "data":{"cislo_karty":"68","platnost":datetime.fromtimestamp(1715002361), "datum_platby":1715002361,"vlastnik":"Ondra","castka":5000}})
