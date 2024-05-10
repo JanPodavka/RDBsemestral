@@ -251,7 +251,7 @@ def Platba(data):
 def Karta(spz, data_platba):
     conn, cursor = connectToPostgreDb()
     cislo_karty = int(data_platba["cislo_karty"])
-    platnost = data_platba["platnost"]
+    platnost = datetime.fromtimestamp(data_platba["platnost"])
     vlastnik = data_platba["vlastnik"]
     castka = int(data_platba["castka"])
     datum_platby = datetime.fromtimestamp(data_platba["datum_platby"])
@@ -349,5 +349,5 @@ if __name__ == '__main__':
     # print(searchSPZ('QQQ4567'))
     # print(searchPruj('QQQ4567', 1111, datetime.fromtimestamp(1715002361)))
     #addKredit('QQQ4567',4000)
-    #Platba({"typ":"Karta", "spz":"QQQ4567", "data":{"cislo_karty":"68","platnost":datetime.fromtimestamp(1715002361), "datum_platby":1715002361,"vlastnik":"Ondra","castka":5000}})
+    #Platba({"typ":"Karta", "spz":"QQQ4567", "data":{"cislo_karty":"68","platnost":1715002361, "datum_platby":1715002361,"vlastnik":"Ondra","castka":5000}})
     print(vypisPlatby('QQQ4567'))
