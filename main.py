@@ -253,8 +253,8 @@ def Platba(data):
         Karta(spz,data_platba)
     elif typ == "Hotovost":
         conn, cursor = connectToPostgreDb()
-        castka = data_platba["castka"]
-        datum_platby = datetime.fromtimestamp(int(data_platba["datum_platby"]))
+        castka = int(data_platba["castka"])
+        datum_platby = datetime.now()
 
 
         insert_stmt = (
@@ -274,10 +274,11 @@ def Platba(data):
 def Karta(spz, data_platba):
     conn, cursor = connectToPostgreDb()
     cislo_karty = data_platba["cislo_karty"]
-    platnost = datetime.fromtimestamp(int(data_platba["platnost"]))
+    datum = data_platba["platnost"]
+    platnost = datetime.strptime(datum, "%m%d")
     vlastnik = data_platba["vlastnik"]
     castka = int(data_platba["castka"])
-    datum_platby = datetime.fromtimestamp(int(data_platba["datum_platby"]))
+    datum_platby = datetime.now()
 
     insert_stmt = (
         "INSERT INTO Karta (cislo_karty, platnost, vlastnik) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
@@ -301,14 +302,14 @@ def Karta(spz, data_platba):
 def Prevod(spz, data_platba):
     conn, cursor = connectToPostgreDb()
     cislo_uctu = data_platba["cislo_uctu"]
-    vlastnik = data_platba["vlastnik"]
-    castka = data_platba["castka"]
-    datum_platby = datetime.fromtimestamp(int(data_platba["datum_platby"]))
+    castka = int(data_platba["castka"])
+    kod_banky = data_platba["kod_banky"]
+    datum_platby = datetime.now()
 
     insert_stmt = (
-        "INSERT INTO Prevod (cislo_ucstu, vlastnik) VALUES (%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Prevod (cislo_ucstu, kod_banky) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
     )
-    data = (cislo_uctu, vlastnik, castka)
+    data = (cislo_uctu, kod_banky)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
@@ -350,5 +351,3 @@ if __name__ == '__main__':
     # print(searchSPZ('QQQ4567'))
     # print(searchPruj('QQQ4567', 1111, datetime.fromtimestamp(1715002361)))
     #addKredit('QQQ4567',4000)
-    # Platba({"typ":"Karta", "spz":"QQQ4567", "data":{"cislo_karty":"69","platnost":1715002361, "datum_platby":1715002361,"vlastnik":"Ondra","castka":2000}})
-    # print(vypisPlatby('QQQ4567'))
