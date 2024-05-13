@@ -14,19 +14,32 @@
     </v-tabs>
     <v-spacer></v-spacer>
   </v-app-bar>
-    <AppSelectCar />
+      <v-navigation-drawer app>
+    <!-- List of blank data here -->
+    <v-list-item :style="{ 'font-weight': 'bold', 'font-size': '20px' }">Výběr SPZ automobilu</v-list-item>
+    <v-divider></v-divider>
+    <v-list>
+      <v-list-item-group>
+        <v-list-item v-for="(item, index) in dataspz" :key="index" @click="handleItemClick(item)">
+          <v-list-item-content>
+            <v-list-item-title>{{ item }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list-item-group>
+    </v-list>
+  </v-navigation-drawer>
     <v-main>
       <template v-if="tab === 1">
-        <HelloWorld />
+        <HelloWorld  :tableDataFromBackend="tabledata"/>
       </template>
       <template v-else-if="tab === 2">
         <div>
-          Content for the second tab
+          Content for the third tab
         </div>
       </template>
       <template v-else-if="tab === 3">
         <div>
-          Content for the third tab
+          <AddPay />
         </div>
       </template>
     </v-main>
@@ -37,5 +50,33 @@
 <script setup>
 import { ref } from 'vue';
 
+import axios from "axios";
 const tab = ref(1); // Default tab
+const dataspz = ref([]);
+let tabledata = ref([]);
+
+
+axios.get('http://127.0.0.1:5000/api/dataSPZ')
+  .then(response => {
+    console.log(response.value)
+    dataspz.value = response.data;  // Assuming response.data is an array of objects
+  })
+  .catch(error => {
+    console.error('Error fetching data from Flask backend:', error);
+  });
+
+
+
+const handleItemClick = (item) => {
+  console.log(`Clicked item: ${item}`);
+
+  axios.get(`http://127.0.0.1:5000/api/dataPrujezd?spz=${item}`)
+    .then(response => {
+      tabledata = response.data;
+      console.log('Table data:', tabledata);
+    })
+    .catch(error => {
+      console.error('Error fetching table data:', error);
+    });
+};
 </script>

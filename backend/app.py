@@ -1,6 +1,6 @@
 import datetime
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 from main import SPZ_Data, SPZ
@@ -28,13 +28,14 @@ def get_data():
 
 
 # Data o průjezdech na základě SPZ
-@app.route('/api/dataPrujezd')
+@app.route('/api/dataPrujezd', methods=['GET'])
 def get_tabledata():
-    data = SPZ_Data('QQQ4567')
-    km = data['celkem_km']
-    kredity = data['kredity']
+    spz = request.args.get('spz')  # Get selected SPZ from query parameters
+    if spz is None:
+        return jsonify({"error": "SPZ parameter is missing"}), 400
+    data = SPZ_Data(spz)
     tabledata = data['prujezd']
-    return jsonify(tabledata)
+    return tabledata
 
 @app.route('/api/dataSPZ')
 def get_dataSPZ():

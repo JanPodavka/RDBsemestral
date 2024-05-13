@@ -32,6 +32,22 @@ axios.get('http://127.0.0.1:5000/api/dataSPZ')
   });
 
 
+
+const handleItemClick = (item) => {
+  console.log(`Clicked item: ${item}`);
+
+  axios.get(`http://127.0.0.1:5000/api/dataPrujezd?spz=${item}`)
+    .then(response => {
+      const tabledata = response.data;
+      console.log('Table data:', tabledata);
+      emit('tableDataUpdated', tabledata);
+    })
+    .catch(error => {
+      console.error('Error fetching table data:', error);
+    });
+};
+
+
 </script>
 
 
