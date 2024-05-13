@@ -3,7 +3,6 @@ import pymongo
 import psycopg2
 from datetime import datetime
 import random
-#from pyliquibase import liquibase
 
 
 def connectToPostgreDb():
@@ -341,5 +340,5 @@ if __name__ == '__main__':
     # print(searchSPZ('QQQ4567'))
     # print(searchPruj('QQQ4567', 1111, datetime.fromtimestamp(1715002361)))
     #addKredit('QQQ4567',4000)
-    #Platba({"typ":"Karta", "spz":"QQQ4567", "data":{"cislo_karty":"68","platnost":1715002361, "datum_platby":1715002361,"vlastnik":"Ondra","castka":5000}})
+    # Platba({"typ":"Karta", "spz":"QQQ4567", "data":{"cislo_karty":"69","platnost":1715002361, "datum_platby":1715002361,"vlastnik":"Ondra","castka":2000}})
     print(vypisPlatby('QQQ4567'))

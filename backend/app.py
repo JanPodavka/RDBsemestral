@@ -3,7 +3,7 @@ import datetime
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
-from main import SPZ_Data, SPZ
+from main import SPZ_Data, SPZ, Platba
 
 app = Flask(__name__)
 CORS(app)
@@ -36,6 +36,15 @@ def get_spz():
     data = SPZ()
     tabledata = data['spz']
     return jsonify(tabledata)  # Corrected syntax
+
+# Platba
+@app.route('/api/karta', methods=['GET'])
+def get_tabledata():
+    platba = request.args.get('platba')  # Get platba parameters
+    if platba is None:
+        return jsonify({"error": "SPZ parameter is missing"}), 400
+    Platba(platba)
+
 
 
 if __name__ == '__main__':
