@@ -40,6 +40,11 @@
 </template>
 
 <script>
+import axios from "axios";
+import { ref } from 'vue';
+
+const dataPlatba = ref([]);
+
 export default {
   name: "AddPay",
   data() {
@@ -56,13 +61,21 @@ export default {
   methods: {
     payCard() {
       // Clear all text fields
+
+      axios.get('http://127.0.0.1:5000/api/karta?platba=${dataPlatba}')
+      .then(response => {
+          console.log(response.value)
+      dataPlatba.value = {"typ":"Karta","spz":"QQQ4567","data":{"cislo_karty":this.cardNumber,"platnost":"1715002361","vlastnik":this.cvv,"castka":20,"datum_platby":"1715002361"}};  // Assuming response.data is an array of objects
+  })
+  .catch(error => {
+    console.error('Error fetching data from Flask backend:', error);
+  });
       this.cardNumber = "";
       this.expiryDate = "";
       this.cvv = "";
       this.bankName = "";
       this.accountNumber = "";
       this.cashAmount = "";
-
       // Call your function here
       // For now, it's left blank
     },
