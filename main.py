@@ -264,7 +264,7 @@ def Platba(data):
 def Karta(spz, data_platba):
     conn, cursor = connectToPostgreDb()
     cislo_karty = int(data_platba["cislo_karty"])
-    platnost = datetime.fromtimestamp(data_platba["platnost"])
+    platnost = datetime.fromtimestamp(int(data_platba["platnost"]))
     vlastnik = data_platba["vlastnik"]
     castka = int(data_platba["castka"])
     datum_platby = datetime.fromtimestamp(data_platba["datum_platby"])
