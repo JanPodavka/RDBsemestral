@@ -4,26 +4,14 @@
       class="align-centerfill-height mx-auto"
       max-width="900"
     >
-      <v-img
-        class="mb-4"
-        height="150"
-        src="@/assets/logo.png"
-      />
       <div>
-        <h2>Data from Flask Backend in Table:</h2>
         <v-data-table
           :headers="headers"
-          :items="tableDataFromBackend"
+          :items="localTableData"
           :items-per-page="5"
           class="elevation-1"
         ></v-data-table>
       </div>
-      <div class="text-center">
-        <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
-
-        <h1 class="text-h2 font-weight-bold">Vuetify</h1>
-      </div>
-
       <div class="py-4" />
 
 
@@ -32,26 +20,25 @@
 </template>
 
 <script setup>
-import axios from 'axios';
-import { ref, onMounted } from 'vue';
+import {ref, onMounted, defineProps, watch} from 'vue';
+const props = defineProps({
+  tableDataFromBackend: Array
+});
+const localTableData = ref(props.tableDataFromBackend);
 
-const dataFromBackend = ref([]);
-const tableDataFromBackend = ref([]);
+console.log(props)
+watch(
+  () => props.tableDataFromBackend,
+  (newVal) => {
+    console.log('Prop value changed:', newVal);
 
-axios.get('http://127.0.0.1:5000/api/data')
-  .then(response => {
-    dataFromBackend.value = response.data;  // Assuming response.data is an array of objects
-  })
-  .catch(error => {
-    console.error('Error fetching data from Flask backend:', error);
-  });
-
-axios.get('http://127.0.0.1:5000/api/dataPrujezd')
-  .then(response => {
-    tableDataFromBackend.value = response.data;  // Assuming response.data is an array of objects
-  })
-  .catch(error => {
-    console.error('Error fetching data from Flask backend:', error);
-  });
-
+    localTableData.value = newVal;
+  },
+  { immediate: true } // Update immediately when the component is mounted
+);
 </script>
+
+
+
+
+
