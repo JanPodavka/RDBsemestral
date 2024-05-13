@@ -244,7 +244,7 @@ def Platba(data):
     elif typ == "Hotovost":
         conn, cursor = connectToPostgreDb()
         castka = data_platba["Hotovost_castka"]
-        datum_platby = datetime.fromtimestamp(data_platba["datum_platby"])
+        datum_platby = datetime.fromtimestamp(int(data_platba["datum_platby"]))
 
 
         insert_stmt = (
@@ -267,7 +267,7 @@ def Karta(spz, data_platba):
     platnost = datetime.fromtimestamp(int(data_platba["platnost"]))
     vlastnik = data_platba["vlastnik"]
     castka = int(data_platba["castka"])
-    datum_platby = datetime.fromtimestamp(data_platba["datum_platby"])
+    datum_platby = datetime.fromtimestamp(int(data_platba["datum_platby"]))
 
     insert_stmt = (
         "INSERT INTO Karta (cislo_karty, platnost, vlastnik, castka) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING"
@@ -293,7 +293,7 @@ def Prevod(spz, data_platba):
     cislo_uctu = data_platba["cislo_uctu"]
     vlastnik = data_platba["vlastnik"]
     castka = data_platba["castka"]
-    datum_platby = datetime.fromtimestamp(data_platba["datum_platby"])
+    datum_platby = datetime.fromtimestamp(int(data_platba["datum_platby"]))
 
     insert_stmt = (
         "INSERT INTO Prevod (cislo_ucstu, vlastnik, castka) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
