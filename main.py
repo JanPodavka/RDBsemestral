@@ -3,6 +3,7 @@ import pymongo
 import psycopg2
 from datetime import datetime
 import random
+#from pyliquibase import liquibase
 
 
 def connectToPostgreDb():
@@ -26,6 +27,7 @@ def saveJsonToMongo(path, collection):
     print(inserted.inserted_ids)
 
 
+#vypis vsech SPZ
 def SPZ():
     conn, cursor = connectToPostgreDb()
     select_stmt = (
@@ -42,6 +44,7 @@ def SPZ():
     return spz_dict
 
 
+#vypis dat pro konkretni SPZ
 def SPZ_Data(spz):
     conn, cursor = connectToPostgreDb()
     spz_prujezd = {}
@@ -87,6 +90,7 @@ def SPZ_Data(spz):
     return spz_prujezd
 
 
+#hleda, zda konkretni SPZ je v databazi
 def searchSPZ(spz):
     conn, cursor = connectToPostgreDb()
 
@@ -100,6 +104,62 @@ def searchSPZ(spz):
 
     closePostgreDb(conn, cursor)
     return spz_new
+
+
+#hleda, zda konkretni prujezd je v databazi
+def searchPruj(spz, brana_id, datum_prujezdu):
+    conn, cursor = connectToPostgreDb()
+
+    sql_query = (
+        """
+    SELECT brana_id, datum_prujezdu
+    FROM Prujezd
+    WHERE Vozidlo_SPZ = %s
+    """
+    )
+    cursor.execute(sql_query, (spz,))
+    pru_records = cursor.fetchall()
+    brana = [record[0] for record in pru_records]
+    datum = [record[1] for record in pru_records]
+
+    closePostgreDb(conn, cursor)
+
+    for i, x in enumerate(brana):
+        if brana[i] == brana_id and datum[i] == datum_prujezdu:
+            return 0
+        else:
+            continue
+
+    return 1
+
+
+#zaplaceni kreditu pri prujezdu
+def payKredit(spz, ujete_km):
+    conn, cursor = connectToPostgreDb()
+
+    sql_query = (
+        """
+        SELECT vozidlo.kredit, emisni_trida.sazba FROM vozidlo
+        JOIN emisni_trida ON vozidlo.emisni_trida_typ = emisni_trida.typ
+        WHERE vozidlo.spz = %s;
+        """
+    )
+    cursor.execute(sql_query, (spz,))
+    result = cursor.fetchone()
+    kredit = result[0]
+    sazba = result[1]
+
+    sql_query = (
+        """
+        UPDATE Vozidlo
+        SET Kredit = %s
+        WHERE spz = %s;
+        """
+    )
+    pay = ujete_km * sazba
+    cursor.execute(sql_query, (kredit-pay, spz))
+    conn.commit()
+    closePostgreDb(conn, cursor)
 
 
 def MongoToPostgre(collection):
@@ -124,6 +184,7 @@ def MongoToPostgre(collection):
         )
         data = (emisni_trida, km_sazba)
         cursor.execute(insert_stmt, data)
+        conn.commit()
 
         spz_new = searchSPZ(spz)
         if spz_new == 1:
@@ -133,15 +194,148 @@ def MongoToPostgre(collection):
             )
             data = (spz, kredit, emisni_trida)
             cursor.execute(insert_stmt, data)
+            conn.commit()
 
-        insert_stmt = (
-            "INSERT INTO Prujezd (brana_id, datum_prujezdu, ujete_km, vozidlo_spz) VALUES (%s, %s, %s, %s) ON CONFLICT DO NOTHING"
-        )
-        data = (brana_id, datum_prujezdu, ujete_km, spz)
-        cursor.execute(insert_stmt, data)
+        pruj_new = searchPruj(spz, brana_id, datum_prujezdu)
 
+        if pruj_new == 1:
+            insert_stmt = (
+                "INSERT INTO Prujezd (brana_id, datum_prujezdu, ujete_km, vozidlo_spz) VALUES (%s, %s, %s, %s) ON CONFLICT DO NOTHING"
+            )
+            data = (brana_id, datum_prujezdu, ujete_km, spz)
+            cursor.execute(insert_stmt, data)
+            payKredit(spz, ujete_km)
+            conn.commit()
+
+    closePostgreDb(conn, cursor)
+
+
+#nahrani kreditu
+def addKredit(spz, castka):
+    conn, cursor = connectToPostgreDb()
+
+    sql_query = (
+        """
+        SELECT kredit FROM vozidlo
+        WHERE vozidlo.spz = %s;
+        """
+    )
+    cursor.execute(sql_query, (spz,))
+    kredit = cursor.fetchone()[0]
+
+    sql_query = (
+        """
+        UPDATE Vozidlo
+        SET Kredit = %s
+        WHERE spz = %s;
+        """
+    )
+    cursor.execute(sql_query, (kredit + castka, spz))
     conn.commit()
     closePostgreDb(conn, cursor)
+
+
+#Platba pro nahrani kreditu
+def Platba(data):
+    typ = data["typ"]
+    spz = data["spz"]
+    data_platba = data["data"]
+    if typ == "Karta":
+        Karta(spz,data_platba)
+    elif typ == "Hotovost":
+        Hotovost(spz, data_platba)
+    elif typ == "Prevod":
+        Prevod(spz, data_platba)
+
+
+def Karta(spz, data_platba):
+    conn, cursor = connectToPostgreDb()
+    cislo_karty = int(data_platba["cislo_karty"])
+    platnost = datetime.fromtimestamp(data_platba["platnost"])
+    vlastnik = data_platba["vlastnik"]
+    castka = int(data_platba["castka"])
+    datum_platby = datetime.fromtimestamp(data_platba["datum_platby"])
+
+    insert_stmt = (
+        "INSERT INTO Karta (cislo_karty, platnost, vlastnik, castka) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING"
+    )
+    data = (cislo_karty, platnost, vlastnik, castka)
+    cursor.execute(insert_stmt, data)
+    conn.commit()
+
+    insert_stmt = (
+        "INSERT INTO Platba (id,vozidlo_spz, Karta_cislo_karty, datum_platby) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING"
+    )
+    data = (1,spz, cislo_karty,datum_platby)
+    cursor.execute(insert_stmt, data)
+    conn.commit()
+
+    addKredit(spz, castka)
+
+    closePostgreDb(conn, cursor)
+
+
+def Hotovost(spz, data_platba):
+    conn, cursor = connectToPostgreDb()
+    castka = data_platba["castka"]
+
+    insert_stmt = (
+        "INSERT INTO Hotovost (castka) VALUES (%s) ON CONFLICT DO NOTHING"
+    )
+    data = (castka)
+    cursor.execute(insert_stmt, data)
+    conn.commit()
+
+    insert_stmt = (
+        "INSERT INTO Platba (spz) VALUES (%s) ON CONFLICT DO NOTHING"
+    )
+    data = (spz)
+    cursor.execute(insert_stmt, data)
+    conn.commit()
+
+    addKredit(spz, castka)
+
+    closePostgreDb(conn, cursor)
+
+
+def Prevod(spz, data_platba):
+    conn, cursor = connectToPostgreDb()
+    cislo_uctu = data_platba["cislo_uctu"]
+    vlastnik = data_platba["vlastnik"]
+    castka = data_platba["castka"]
+
+    insert_stmt = (
+        "INSERT INTO Prevod (cislo_ucstu, vlastnik, castka) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+    )
+    data = (cislo_uctu, vlastnik, castka)
+    cursor.execute(insert_stmt, data)
+    conn.commit()
+
+    insert_stmt = (
+        "INSERT INTO Platba (spz, Prevod_cislo_uctu) VALUES (%s,%s) ON CONFLICT DO NOTHING"
+    )
+    data = (spz, cislo_uctu)
+    cursor.execute(insert_stmt, data)
+    conn.commit()
+
+    addKredit(spz, castka)
+
+    closePostgreDb(conn, cursor)
+
+
+def vypisPlatby(spz):
+    conn, cursor = connectToPostgreDb()
+    sql_query = (
+        """
+        SELECT * FROM platba
+        WHERE Vozidlo_spz = %s 
+        """
+    )
+    cursor.execute(sql_query, (spz,))
+    platba_records = cursor.fetchall()
+    all_platba = [record for record in platba_records]
+    closePostgreDb(conn, cursor)
+    return(all_platba)
 
 
 if __name__ == '__main__':
@@ -153,3 +347,7 @@ if __name__ == '__main__':
     # print(SPZ())
     # print(SPZ_Data('QQQ4567'))
     # print(searchSPZ('QQQ4567'))
+    # print(searchPruj('QQQ4567', 1111, datetime.fromtimestamp(1715002361)))
+    #addKredit('QQQ4567',4000)
+    #Platba({"typ":"Karta", "spz":"QQQ4567", "data":{"cislo_karty":"68","platnost":1715002361, "datum_platby":1715002361,"vlastnik":"Ondra","castka":5000}})
+    print(vypisPlatby('QQQ4567'))
