@@ -243,7 +243,21 @@ def Platba(data):
     if typ == "Karta":
         Karta(spz,data_platba)
     elif typ == "Hotovost":
-        Hotovost(spz, data_platba)
+        conn, cursor = connectToPostgreDb()
+        castka = data_platba["Hotovost_castka"]
+        datum_platby = datetime.fromtimestamp(data_platba["datum_platby"])
+
+
+        insert_stmt = (
+            "INSERT INTO Platba (spz, hotovost_castka, datum_platby) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+        )
+        data = (spz, castka, datum_platby)
+        cursor.execute(insert_stmt, data)
+        conn.commit()
+
+        addKredit(spz, castka)
+
+        closePostgreDb(conn, cursor)
     elif typ == "Prevod":
         Prevod(spz, data_platba)
 
@@ -264,32 +278,9 @@ def Karta(spz, data_platba):
     conn.commit()
 
     insert_stmt = (
-        "INSERT INTO Platba (id,vozidlo_spz, Karta_cislo_karty, datum_platby) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Platba (vozidlo_spz, Karta_cislo_karty, datum_platby) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
     )
-    data = (1,spz, cislo_karty,datum_platby)
-    cursor.execute(insert_stmt, data)
-    conn.commit()
-
-    addKredit(spz, castka)
-
-    closePostgreDb(conn, cursor)
-
-
-def Hotovost(spz, data_platba):
-    conn, cursor = connectToPostgreDb()
-    castka = data_platba["castka"]
-
-    insert_stmt = (
-        "INSERT INTO Hotovost (castka) VALUES (%s) ON CONFLICT DO NOTHING"
-    )
-    data = (castka)
-    cursor.execute(insert_stmt, data)
-    conn.commit()
-
-    insert_stmt = (
-        "INSERT INTO Platba (spz) VALUES (%s) ON CONFLICT DO NOTHING"
-    )
-    data = (spz)
+    data = (spz, cislo_karty,datum_platby)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
@@ -303,6 +294,7 @@ def Prevod(spz, data_platba):
     cislo_uctu = data_platba["cislo_uctu"]
     vlastnik = data_platba["vlastnik"]
     castka = data_platba["castka"]
+    datum_platby = datetime.fromtimestamp(data_platba["datum_platby"])
 
     insert_stmt = (
         "INSERT INTO Prevod (cislo_ucstu, vlastnik, castka) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
@@ -312,9 +304,9 @@ def Prevod(spz, data_platba):
     conn.commit()
 
     insert_stmt = (
-        "INSERT INTO Platba (spz, Prevod_cislo_uctu) VALUES (%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Platba (spz, Prevod_cislo_uctu, Datum_platby) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
     )
-    data = (spz, cislo_uctu)
+    data = (spz, cislo_uctu, datum_platby)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
