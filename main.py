@@ -303,12 +303,13 @@ def Prevod(spz, data_platba):
     cislo_uctu = data_platba["cislo_uctu"]
     vlastnik = data_platba["vlastnik"]
     castka = data_platba["castka"]
+    kod_banky = data_platba["kod_banky"]
     datum_platby = datetime.fromtimestamp(int(data_platba["datum_platby"]))
 
     insert_stmt = (
-        "INSERT INTO Prevod (cislo_ucstu, vlastnik) VALUES (%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Prevod (cislo_ucstu, vlastnik, kod_banky) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
     )
-    data = (cislo_uctu, vlastnik, castka)
+    data = (cislo_uctu, vlastnik, kod_banky)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
@@ -350,5 +351,3 @@ if __name__ == '__main__':
     # print(searchSPZ('QQQ4567'))
     # print(searchPruj('QQQ4567', 1111, datetime.fromtimestamp(1715002361)))
     #addKredit('QQQ4567',4000)
-    # Platba({"typ":"Karta", "spz":"QQQ4567", "data":{"cislo_karty":"69","platnost":1715002361, "datum_platby":1715002361,"vlastnik":"Ondra","castka":2000}})
-    # print(vypisPlatby('QQQ4567'))
