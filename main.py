@@ -258,7 +258,7 @@ def Platba(data):
 
 
         insert_stmt = (
-            "INSERT INTO Platba (spz, castka, datum_platby) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+            "INSERT INTO Platba (Vozidlo_spz, castka, datum_platby) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
         )
         data = (spz, castka, datum_platby)
         cursor.execute(insert_stmt, data)
