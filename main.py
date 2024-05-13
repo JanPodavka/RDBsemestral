@@ -194,6 +194,16 @@ def MongoToPostgre(collection):
             data = (spz, kredit, emisni_trida)
             cursor.execute(insert_stmt, data)
             conn.commit()
+        elif spz_new == 0:
+            sql_query = (
+                """
+                UPDATE Vozidlo
+                SET Emisni_trida_typ = %s
+                WHERE spz = %s;
+                """
+            )
+            cursor.execute(sql_query, (emisni_trida, spz))
+            conn.commit()
 
         pruj_new = searchPruj(spz, brana_id, datum_prujezdu)
 
@@ -334,11 +344,11 @@ if __name__ == '__main__':
     mydb = myclient["RDBsemestral"]
     mycol = mydb["TollGates"]
     # saveJsonToMongo('data/data-export2.json', mycol)
-    # MongoToPostgre(mycol)
+    MongoToPostgre(mycol)
     # print(SPZ())
     # print(SPZ_Data('QQQ4567'))
     # print(searchSPZ('QQQ4567'))
     # print(searchPruj('QQQ4567', 1111, datetime.fromtimestamp(1715002361)))
     #addKredit('QQQ4567',4000)
     # Platba({"typ":"Karta", "spz":"QQQ4567", "data":{"cislo_karty":"69","platnost":1715002361, "datum_platby":1715002361,"vlastnik":"Ondra","castka":2000}})
-    print(vypisPlatby('QQQ4567'))
+    # print(vypisPlatby('QQQ4567'))
