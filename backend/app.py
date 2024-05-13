@@ -1,4 +1,5 @@
 import datetime
+import json
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
@@ -15,7 +16,6 @@ spzdata = [
 ]
 
 
-
 # Data o průjezdech na základě SPZ
 @app.route('/api/dataPrujezd', methods=['GET'])
 def get_tabledata():
@@ -26,25 +26,23 @@ def get_tabledata():
     tabledata = data['prujezd']
     return tabledata
 
+
 @app.route('/api/dataSPZ')
 def get_dataSPZ():
     data = SPZ()
     return jsonify(data['spz'])  # Corrected syntax
 
-@app.route('/api/dataSPZ')
-def get_spz():
-    data = SPZ()
-    tabledata = data['spz']
-    return jsonify(tabledata)  # Corrected syntax
+
 
 # Platba
-@app.route('/api/karta', methods=['GET'])
-def get_tabledata():
-    platba = request.args.get('platba')  # Get platba parameters
+@app.route('/api/karta', methods=['POST'])
+def get_karta():
+    platba = request.json  # Get platba parameters
+    platba = platba["platba"]
+    print(platba)
     if platba is None:
         return jsonify({"error": "SPZ parameter is missing"}), 400
     Platba(platba)
-
 
 
 if __name__ == '__main__':
