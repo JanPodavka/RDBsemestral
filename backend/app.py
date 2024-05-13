@@ -41,8 +41,9 @@ def get_karta():
     platba = platba["platba"]
     print(platba)
     if platba is None:
-        return jsonify({"error": "SPZ parameter is missing"}), 400
+        return jsonify({"error": "parameter is missing"}), 400
     Platba(platba)
+    return jsonify({"OK"}), 200
     #add
 
 

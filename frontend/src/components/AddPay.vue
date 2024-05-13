@@ -11,25 +11,31 @@
         <v-text-field v-model="cardNumber" label="Číslo karty"></v-text-field>
       </v-col>
       <v-col cols="12" sm="4">
-        <v-text-field v-model="expiryDate" label="Expiry Date"></v-text-field>
+        <v-text-field v-model="expiryDate" label="Platnost karty"></v-text-field>
       </v-col>
       <v-col cols="12" sm="4">
-        <v-text-field v-model="cvv" label="CVV"></v-text-field>
+        <v-text-field v-model="owner" label="Vlastník"></v-text-field>
+      </v-col>
+      <v-col cols="12" sm="4">
+        <v-text-field v-model="cardMoney" label="Částka"></v-text-field>
       </v-col>
     </v-row>
 
     <v-row v-else-if="selectedItem === 'Převod'">
       <v-col cols="12" sm="6">
-        <v-text-field v-model="bankName" label="Bank Name"></v-text-field>
+        <v-text-field v-model="bankNumber" label="Číslo účtu"></v-text-field>
       </v-col>
       <v-col cols="12" sm="6">
-        <v-text-field v-model="accountNumber" label="Account Number"></v-text-field>
+        <v-text-field v-model="bankCode" label="Kód banky"></v-text-field>
+      </v-col>
+      <v-col cols="12" sm="6">
+        <v-text-field v-model="cashAmount" label="Částka"></v-text-field>
       </v-col>
     </v-row>
 
     <v-row v-else-if="selectedItem === 'Hotovost'">
       <v-col cols="12" sm="6">
-        <v-text-field v-model="cashAmount" label="Cash Amount"></v-text-field>
+        <v-text-field v-model="cashAmount" label="Částka"></v-text-field>
       </v-col>
     </v-row>
 
@@ -53,8 +59,8 @@ export default {
       selectedItem: null,
       cardNumber: "",
       expiryDate: "",
-      cvv: "",
-      bankName: "",
+      owner: "",
+      bankCode: "",
       accountNumber: "",
       cashAmount: ""
     };
@@ -62,8 +68,7 @@ export default {
   methods: {
    payCard() {
     // Clear all text fields
-
-    dataPlatba.value = {"typ":"Karta","spz":"QQQ4567","data":{"cislo_karty":this.cardNumber,"platnost":"1715002361","vlastnik":this.cvv,"castka":20,"datum_platby":"1715002361"}};  // Assuming response.data is an array of objects
+    dataPlatba.value = {"typ":"Karta","spz":"QQQ4567","data":{"cislo_karty":this.cardNumber,"platnost":this.expiryDate,"vlastnik":this.owner,"castka":this.cardMoney}};  // Assuming response.data is an array of objects
     axios.post(`http://127.0.0.1:5000/api/karta`,{
       platba:dataPlatba.value
      })
@@ -75,34 +80,49 @@ export default {
       });
      this.cardNumber = "";
     this.expiryDate = "";
-    this.cvv = "";
-    this.bankName = "";
+    this.owner = "";
+    this.bankCode = "";
     this.accountNumber = "";
     this.cashAmount = "";
+    this.cardMoney = "";
   },
     payTrans() {
-      // Clear all text fields
-      this.cardNumber = "";
-      this.expiryDate = "";
-      this.cvv = "";
-      this.bankName = "";
-      this.accountNumber = "";
-      this.cashAmount = "";
+    dataPlatba.value = {"typ":"Prevod","spz":"QQQ4567","data":{"cislo_uctu":this.bankNumber,"kod_banky":this.bankCode,"castka":this.cashAmount}};  // Assuming response.data is an array of objects
+    axios.post(`http://127.0.0.1:5000/api/karta`,{
+      platba:dataPlatba.value
+     })
+      .then(response => {
 
-      // Call your function here
-      // For now, it's left blank
+      })
+      .catch(error => {
+        console.error('Error fetching data from Flask backend:', error);
+      });
+     this.cardNumber = "";
+    this.expiryDate = "";
+    this.owner = "";
+    this.bankCode = "";
+    this.accountNumber = "";
+    this.cashAmount = "";
+    this.cardMoney = "";
     },
     payMoney() {
-      // Clear all text fields
-      this.cardNumber = "";
-      this.expiryDate = "";
-      this.cvv = "";
-      this.bankName = "";
-      this.accountNumber = "";
-      this.cashAmount = "";
+    dataPlatba.value = {"typ":"Hotovost","spz":"QQQ4567","data":{"castka":this.cashAmount}};  // Assuming response.data is an array of objects
+    axios.post(`http://127.0.0.1:5000/api/karta`,{
+      platba:dataPlatba.value
+     })
+      .then(response => {
 
-      // Call your function here
-      // For now, it's left blank
+      })
+      .catch(error => {
+        console.error('Error fetching data from Flask backend:', error);
+      });
+     this.cardNumber = "";
+    this.expiryDate = "";
+    this.owner = "";
+    this.bankCode = "";
+    this.accountNumber = "";
+    this.cashAmount = "";
+    this.cardMoney = "";
     }
   }
 };
