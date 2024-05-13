@@ -253,12 +253,12 @@ def Platba(data):
         Karta(spz,data_platba)
     elif typ == "Hotovost":
         conn, cursor = connectToPostgreDb()
-        castka = data_platba["Hotovost_castka"]
+        castka = data_platba["castka"]
         datum_platby = datetime.fromtimestamp(int(data_platba["datum_platby"]))
 
 
         insert_stmt = (
-            "INSERT INTO Platba (spz, hotovost_castka, datum_platby) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+            "INSERT INTO Platba (spz, castka, datum_platby) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
         )
         data = (spz, castka, datum_platby)
         cursor.execute(insert_stmt, data)
@@ -280,16 +280,16 @@ def Karta(spz, data_platba):
     datum_platby = datetime.fromtimestamp(int(data_platba["datum_platby"]))
 
     insert_stmt = (
-        "INSERT INTO Karta (cislo_karty, platnost, vlastnik, castka) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Karta (cislo_karty, platnost, vlastnik) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
     )
-    data = (cislo_karty, platnost, vlastnik, castka)
+    data = (cislo_karty, platnost, vlastnik)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
     insert_stmt = (
-        "INSERT INTO Platba (vozidlo_spz, Karta_cislo_karty, datum_platby) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Platba (vozidlo_spz, Karta_cislo_karty, datum_platby, castka) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING"
     )
-    data = (spz, cislo_karty,datum_platby)
+    data = (spz, cislo_karty,datum_platby, castka)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
@@ -306,16 +306,16 @@ def Prevod(spz, data_platba):
     datum_platby = datetime.fromtimestamp(int(data_platba["datum_platby"]))
 
     insert_stmt = (
-        "INSERT INTO Prevod (cislo_ucstu, vlastnik, castka) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Prevod (cislo_ucstu, vlastnik) VALUES (%s,%s) ON CONFLICT DO NOTHING"
     )
     data = (cislo_uctu, vlastnik, castka)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
     insert_stmt = (
-        "INSERT INTO Platba (spz, Prevod_cislo_uctu, Datum_platby) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Platba (spz, Prevod_cislo_uctu, datum_platby, castka) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING"
     )
-    data = (spz, cislo_uctu, datum_platby)
+    data = (spz, cislo_uctu, datum_platby, castka)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
@@ -344,7 +344,7 @@ if __name__ == '__main__':
     mydb = myclient["RDBsemestral"]
     mycol = mydb["TollGates"]
     # saveJsonToMongo('data/data-export2.json', mycol)
-    MongoToPostgre(mycol)
+    # MongoToPostgre(mycol)
     # print(SPZ())
     # print(SPZ_Data('QQQ4567'))
     # print(searchSPZ('QQQ4567'))
