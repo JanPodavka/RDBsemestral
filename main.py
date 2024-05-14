@@ -370,6 +370,30 @@ def celkemPay(spz):
     return sumpay[0][0]
 
 
+def celkemMinus(spz):
+    conn, cursor = connectToPostgreDb()
+    sql_query = (
+        """
+        SELECT sum(ujete_km) FROM prujezd
+        WHERE Vozidlo_spz = %s 
+        """
+    )
+    cursor.execute(sql_query, (spz,))
+    sumkm = cursor.fetchall()[0][0]
+    sql_query = (
+        """
+        SELECT emisni_trida.sazba FROM vozidlo
+        JOIN emisni_trida ON vozidlo.emisni_trida_typ = emisni_trida.typ
+        WHERE vozidlo.spz = %s;
+        """
+    )
+    cursor.execute(sql_query, (spz,))
+    emise = cursor.fetchall()[0][0]
+    closePostgreDb(conn, cursor)
+
+    return sumkm*emise
+
+
 if __name__ == '__main__':
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")  # zakomentovat po vytvřoení
     mydb = myclient["RDBsemestral"]
@@ -384,4 +408,5 @@ if __name__ == '__main__':
     # Platba({"typ":"Hotovost","spz":"DDD4567","data":{"castka":"5000"}})
     # print(vypisPlatby("DDD4567"))
     # print(celkemKm("AAA4567"))
-    print(celkemPay("DDD4567"))
+    # print(celkemPay("DDD4567"))
+    # print(celkemMinus("DDD4567"))
