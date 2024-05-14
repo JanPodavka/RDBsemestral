@@ -4,7 +4,7 @@ import json
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
-from main import SPZ_Data, SPZ, Platba
+from main import SPZ_Data, SPZ, Platba, vypisPlatby
 
 app = Flask(__name__)
 CORS(app)
@@ -25,6 +25,25 @@ def get_tabledata():
     data = SPZ_Data(spz)
     tabledata = data['prujezd']
     return tabledata
+
+@app.route('/api/dataPlatba', methods=['GET'])
+def get_platbydata():
+    spz = request.args.get('spz')  # Get selected SPZ from query parameters
+    if spz is None:
+        return jsonify({"error": "SPZ parameter is missing"}), 400
+    print(spz)
+    data = vypisPlatby(spz)
+    #tabledata = data['prujezd']
+    return data
+
+@app.route('/api/generate', methods=['POST'])
+def get_generated():
+    data = request.json  # Get platba parameters
+    num = data["num"]
+
+    if num is None:
+        return jsonify({"error": "SPZ parameter is missing"}), 400
+
 
 
 @app.route('/api/dataSPZ')

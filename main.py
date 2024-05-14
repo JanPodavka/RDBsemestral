@@ -307,14 +307,14 @@ def Prevod(spz, data_platba):
     datum_platby = datetime.now()
 
     insert_stmt = (
-        "INSERT INTO Prevod (cislo_ucstu, kod_banky) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Prevod (cislo_uctu, kod_banky) VALUES (%s,%s) ON CONFLICT DO NOTHING"
     )
     data = (cislo_uctu, kod_banky)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
     insert_stmt = (
-        "INSERT INTO Platba (spz, Prevod_cislo_uctu, datum_platby, castka) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Platba (vozidlo_spz, Prevod_cislo_uctu, datum_platby, castka) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING"
     )
     data = (spz, cislo_uctu, datum_platby, castka)
     cursor.execute(insert_stmt, data)
@@ -335,9 +335,16 @@ def vypisPlatby(spz):
     )
     cursor.execute(sql_query, (spz,))
     platba_records = cursor.fetchall()
-    all_platba = [record for record in platba_records]
+    all_platba = []
+    for record in platba_records:
+        platba_dict = {}
+        for i, column_name in enumerate(cursor.description):
+            platba_dict[column_name[0]] = record[i]
+        all_platba.append(platba_dict)
+
+    print(all_platba)
     closePostgreDb(conn, cursor)
-    return(all_platba)
+    return all_platba
 
 
 if __name__ == '__main__':
