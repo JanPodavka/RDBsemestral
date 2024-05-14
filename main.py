@@ -227,6 +227,7 @@ def addKredit(spz, castka):
         """
         SELECT kredit FROM vozidlo
         WHERE vozidlo.spz = %s;
+        ON CONFLICT DO NOTHING
         """
     )
     cursor.execute(sql_query, (spz,))
@@ -237,6 +238,7 @@ def addKredit(spz, castka):
         UPDATE Vozidlo
         SET Kredit = %s
         WHERE spz = %s;
+        ON CONFLICT DO NOTHING
         """
     )
     cursor.execute(sql_query, (kredit + castka, spz))
@@ -307,14 +309,14 @@ def Prevod(spz, data_platba):
     datum_platby = datetime.now()
 
     insert_stmt = (
-        "INSERT INTO Prevod (cislo_ucstu, kod_banky) VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Prevod (cislo_uctu, kod_banky) VALUES (%s,%s) ON CONFLICT DO NOTHING"
     )
     data = (cislo_uctu, kod_banky)
     cursor.execute(insert_stmt, data)
     conn.commit()
 
     insert_stmt = (
-        "INSERT INTO Platba (spz, Prevod_cislo_uctu, datum_platby, castka) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Platba (Vozidlo_spz, Prevod_cislo_uctu, datum_platby, castka) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING"
     )
     data = (spz, cislo_uctu, datum_platby, castka)
     cursor.execute(insert_stmt, data)
@@ -345,9 +347,11 @@ if __name__ == '__main__':
     mydb = myclient["RDBsemestral"]
     mycol = mydb["TollGates"]
     # saveJsonToMongo('data/data-export2.json', mycol)
-    MongoToPostgre(mycol)
+    # MongoToPostgre(mycol)
     # print(SPZ())
     # print(SPZ_Data('QQQ4567'))
     # print(searchSPZ('QQQ4567'))
     # print(searchPruj('QQQ4567', 1111, datetime.fromtimestamp(1715002361)))
     #addKredit('QQQ4567',4000)
+    # Platba({"typ":"Hotovost","spz":"DDD4567","data":{"castka":"5000"}})
+    # print(vypisPlatby("DDD4567"))
