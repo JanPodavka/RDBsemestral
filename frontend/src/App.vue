@@ -31,7 +31,10 @@
   </v-navigation-drawer>
     <v-main>
       <template v-if="tab === 1">
-        <HelloWorld  :tableDataFromBackend="tabledata"/>
+        <h2>Celkem ujeto km: </h2>
+        <h2>Celková cena průjezdů branami: </h2>
+        <HelloWorld  :tableDataFromBackend="tabledata" />
+
       </template>
       <template v-else-if="tab === 2">
         <div>
@@ -63,6 +66,7 @@ const dataspz = ref([]);
 let tabledata = ref([]);
 let payData = ref([]);
 let spz_now = ref("QQQ4567");
+let spz = ref([]);
 
 
 axios.get('http://127.0.0.1:5000/api/dataSPZ')
@@ -97,6 +101,18 @@ const handleItemClick = (item) => {
     .catch(error => {
       console.error('Error fetching table data:', error);
     });
+
+
+
+  axios.post(`http://127.0.0.1:5000/api/celkem_km`,{
+      spz:item
+     })
+      .then(response => {
+        spz.value = response.data
+      })
+      .catch(error => {
+        console.error('Error fetching data from Flask backend:', error);
+      });
 
 
 
