@@ -356,6 +356,20 @@ def celkemKm(spz):
     return sumkm[0][0]
 
 
+def celkemPay(spz):
+    conn, cursor = connectToPostgreDb()
+    sql_query = (
+        """
+        SELECT sum(castka) FROM platba
+        WHERE Vozidlo_spz = %s 
+        """
+    )
+    cursor.execute(sql_query, (spz,))
+    sumpay = cursor.fetchall()
+    closePostgreDb(conn, cursor)
+    return sumpay[0][0]
+
+
 if __name__ == '__main__':
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")  # zakomentovat po vytvřoení
     mydb = myclient["RDBsemestral"]
@@ -370,3 +384,4 @@ if __name__ == '__main__':
     # Platba({"typ":"Hotovost","spz":"DDD4567","data":{"castka":"5000"}})
     # print(vypisPlatby("DDD4567"))
     # print(celkemKm("AAA4567"))
+    print(celkemPay("DDD4567"))
