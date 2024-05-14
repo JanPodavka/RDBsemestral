@@ -227,7 +227,6 @@ def addKredit(spz, castka):
         """
         SELECT kredit FROM vozidlo
         WHERE vozidlo.spz = %s;
-        ON CONFLICT DO NOTHING
         """
     )
     cursor.execute(sql_query, (spz,))
@@ -238,7 +237,6 @@ def addKredit(spz, castka):
         UPDATE Vozidlo
         SET Kredit = %s
         WHERE spz = %s;
-        ON CONFLICT DO NOTHING
         """
     )
     cursor.execute(sql_query, (kredit + castka, spz))
