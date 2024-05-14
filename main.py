@@ -227,6 +227,7 @@ def addKredit(spz, castka):
         """
         SELECT kredit FROM vozidlo
         WHERE vozidlo.spz = %s;
+        ON CONFLICT DO NOTHING
         """
     )
     cursor.execute(sql_query, (spz,))
@@ -237,6 +238,7 @@ def addKredit(spz, castka):
         UPDATE Vozidlo
         SET Kredit = %s
         WHERE spz = %s;
+        ON CONFLICT DO NOTHING
         """
     )
     cursor.execute(sql_query, (kredit + castka, spz))
@@ -314,7 +316,7 @@ def Prevod(spz, data_platba):
     conn.commit()
 
     insert_stmt = (
-        "INSERT INTO Platba (vozidlo_spz, Prevod_cislo_uctu, datum_platby, castka) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING"
+        "INSERT INTO Platba (Vozidlo_spz, Prevod_cislo_uctu, datum_platby, castka) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING"
     )
     data = (spz, cislo_uctu, datum_platby, castka)
     cursor.execute(insert_stmt, data)
@@ -335,16 +337,9 @@ def vypisPlatby(spz):
     )
     cursor.execute(sql_query, (spz,))
     platba_records = cursor.fetchall()
-    all_platba = []
-    for record in platba_records:
-        platba_dict = {}
-        for i, column_name in enumerate(cursor.description):
-            platba_dict[column_name[0]] = record[i]
-        all_platba.append(platba_dict)
-
-    print(all_platba)
+    all_platba = [record for record in platba_records]
     closePostgreDb(conn, cursor)
-    return all_platba
+    return(all_platba)
 
 
 if __name__ == '__main__':
@@ -358,3 +353,5 @@ if __name__ == '__main__':
     # print(searchSPZ('QQQ4567'))
     # print(searchPruj('QQQ4567', 1111, datetime.fromtimestamp(1715002361)))
     #addKredit('QQQ4567',4000)
+    # Platba({"typ":"Hotovost","spz":"DDD4567","data":{"castka":"5000"}})
+    # print(vypisPlatby("DDD4567"))
