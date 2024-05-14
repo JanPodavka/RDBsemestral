@@ -11,6 +11,7 @@
       <v-tab :value="1">Přehled průjezdů</v-tab>
       <v-tab :value="2">Přehled plateb</v-tab>
       <v-tab :value="3">Přidat platbu</v-tab>
+        <v-tab :value="4">Generování dat</v-tab>
     </v-tabs>
     <v-spacer></v-spacer>
   </v-app-bar>
@@ -30,16 +31,24 @@
   </v-navigation-drawer>
     <v-main>
       <template v-if="tab === 1">
-        <HelloWorld  :tableDataFromBackend="tabledata"/>
+        <h2>Celkem ujeto km: </h2>
+        <h2>Celková cena průjezdů branami: </h2>
+        <HelloWorld  :tableDataFromBackend="tabledata" />
+
       </template>
       <template v-else-if="tab === 2">
         <div>
-          Content for the third tab
+          <AppPay  :tableDataFromBackend="payData"/>
         </div>
       </template>
       <template v-else-if="tab === 3">
         <div>
-          <AddPay />
+          <AddPay :tableDataFromBackend="spz_now" />
+        </div>
+      </template>
+      <template v-else-if="tab === 4">
+        <div>
+          <ImportDat/>
         </div>
       </template>
     </v-main>
@@ -51,9 +60,13 @@
 import { ref } from 'vue';
 
 import axios from "axios";
+import ImportDat from "@/components/ImportDat";
 const tab = ref(1); // Default tab
 const dataspz = ref([]);
 let tabledata = ref([]);
+let payData = ref([]);
+let spz_now = ref("QQQ4567");
+let spz = ref([]);
 
 
 axios.get('http://127.0.0.1:5000/api/dataSPZ')
@@ -68,6 +81,7 @@ axios.get('http://127.0.0.1:5000/api/dataSPZ')
 
 
 const handleItemClick = (item) => {
+  spz_now = item
   console.log(`Clicked item: ${item}`);
 
   axios.get(`http://127.0.0.1:5000/api/dataPrujezd?spz=${item}`)
@@ -78,5 +92,29 @@ const handleItemClick = (item) => {
     .catch(error => {
       console.error('Error fetching table data:', error);
     });
+  /// Add pay function in table
+  axios.get(`http://127.0.0.1:5000/api/dataPlatba?spz=${item}`)
+    .then(response => {
+      payData = response.data;
+      console.log('Table data:', tabledata);
+    })
+    .catch(error => {
+      console.error('Error fetching table data:', error);
+    });
+
+
+
+  axios.post(`http://127.0.0.1:5000/api/celkem_km`,{
+      spz:item
+     })
+      .then(response => {
+        spz.value = response.data
+      })
+      .catch(error => {
+        console.error('Error fetching data from Flask backend:', error);
+      });
+
+
+
 };
 </script>
